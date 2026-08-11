@@ -93,11 +93,17 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-ink/85 via-transparent to-ink/30" />
 
       <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-4 pb-16 pt-28 sm:pb-20 sm:pt-32">
-        <div className="hero-brand">
+        <div className="hero-brand flex flex-wrap items-center gap-4 sm:gap-6">
           <img
             src="/brand/fit-pro-logo-on-dark.webp"
             alt="Fit & Protein — 100% Sport et Bien-être"
             className="h-20 w-auto object-contain sm:h-24"
+          />
+          <span className="hidden h-12 w-px bg-white/35 sm:block sm:h-16" aria-hidden="true" />
+          <img
+            src="/amka/logo-on-dark.webp"
+            alt="AMKA Sports Nutrition"
+            className="h-16 w-auto object-contain sm:h-20"
           />
         </div>
         <h1 className="hero-title mt-6 max-w-2xl font-heading text-3xl font-bold leading-[1.08] text-white text-balance sm:text-5xl md:text-6xl">

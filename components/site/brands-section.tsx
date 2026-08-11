@@ -37,10 +37,10 @@ export function BrandsSection() {
         {amka ? (
           <Link
             href="/boutique?cat=amka"
-            className="group mb-6 grid overflow-hidden border border-border bg-white transition-shadow hover:shadow-[0_12px_36px_rgba(56,32,240,0.12)] md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]"
+            className="group mb-6 grid overflow-hidden border border-border bg-white transition-shadow hover:shadow-[0_12px_36px_rgba(38,106,204,0.12)] md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]"
           >
             <div className="relative flex min-h-[220px] items-center justify-center bg-ink p-8 sm:min-h-[260px]">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(56,32,240,0.35),transparent_55%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(38,106,204,0.35),transparent_55%)]" />
               <img
                 src={amka.image}
                 alt={amka.name}

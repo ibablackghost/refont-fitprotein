@@ -9,15 +9,15 @@ export function TopBar() {
           href="tel:+221783813181"
           className="relative z-10 flex shrink-0 items-center gap-2 transition-opacity hover:opacity-80"
         >
-          <Phone className="h-3.5 w-3.5 text-[#9d94ff]" aria-hidden="true" />
+          <Phone className="h-3.5 w-3.5 text-[#7eb8f0]" aria-hidden="true" />
           <span className="font-medium">
-            Service commercial : <span className="text-[#9d94ff]">+221 78 381 31 81</span>
+            Service commercial : <span className="text-[#7eb8f0]">+221 78 381 31 81</span>
           </span>
         </a>
 
         <div className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex">
           <div className="pointer-events-auto flex items-center gap-2 text-white/75">
-            <Truck className="h-3.5 w-3.5 text-[#9d94ff]" aria-hidden="true" />
+            <Truck className="h-3.5 w-3.5 text-[#7eb8f0]" aria-hidden="true" />
             <span>Livraison gratuite dès 30 000 FCFA</span>
           </div>
         </div>
@@ -26,7 +26,7 @@ export function TopBar() {
           href="/favoris"
           className="relative z-10 flex shrink-0 items-center gap-2 transition-opacity hover:opacity-80"
         >
-          <Heart className="h-3.5 w-3.5 text-[#9d94ff]" aria-hidden="true" />
+          <Heart className="h-3.5 w-3.5 text-[#7eb8f0]" aria-hidden="true" />
           <span className="font-medium">Favoris</span>
         </Link>
       </div>

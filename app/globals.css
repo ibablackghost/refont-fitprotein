@@ -59,49 +59,49 @@
 
 :root {
   color-scheme: light;
-  /* Fit & Protein × AMKA — bleu électrique FitProtein + blanc + sable AMKA */
-  --background: #f7f7fc;
+  /* Fit & Protein × AMKA — bleu AMKA (#266acc) + blanc + sable */
+  --background: #f7fafc;
   --foreground: #14181f;
   --card: #ffffff;
   --card-foreground: #14181f;
   --popover: #ffffff;
   --popover-foreground: #14181f;
-  --primary: #3820f0;
+  --primary: #266acc;
   --primary-foreground: #ffffff;
-  --secondary: #eeedfe;
-  --secondary-foreground: #1a1540;
-  --muted: #f0effa;
+  --secondary: #e8f1fa;
+  --secondary-foreground: #132c50;
+  --muted: #eef3f8;
   --muted-foreground: #5b6573;
-  --accent: #3820f0;
+  --accent: #266acc;
   --accent-foreground: #ffffff;
   --destructive: #c43c3c;
-  --border: #e2e0f0;
-  --input: #e2e0f0;
-  --ring: #3820f0;
-  --brand: #3820f0;
+  --border: #dce5ee;
+  --input: #dce5ee;
+  --ring: #266acc;
+  --brand: #266acc;
   --brand-foreground: #ffffff;
-  --lime: #3820f0;
+  --lime: #266acc;
   --lime-foreground: #ffffff;
-  --ink: #0f1720;
-  --mist: #eeedfe;
+  --ink: #132c50;
+  --mist: #e8f1fa;
   --sand: #c9b896;
   --sand-foreground: #2a2418;
   --sale: #c43c3c;
   --sale-foreground: #ffffff;
-  --chart-1: #3820f0;
-  --chart-2: #0f1720;
+  --chart-1: #266acc;
+  --chart-2: #132c50;
   --chart-3: #c9b896;
   --chart-4: #c43c3c;
-  --chart-5: #8b7ef8;
+  --chart-5: #7eb8f0;
   --radius: 0.25rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #14181f;
-  --sidebar-primary: #3820f0;
+  --sidebar-primary: #266acc;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eeedfe;
-  --sidebar-accent-foreground: #1a1540;
-  --sidebar-border: #e2e0f0;
-  --sidebar-ring: #3820f0;
+  --sidebar-accent: #e8f1fa;
+  --sidebar-accent-foreground: #132c50;
+  --sidebar-border: #dce5ee;
+  --sidebar-ring: #266acc;
 }
 
 @layer base {
