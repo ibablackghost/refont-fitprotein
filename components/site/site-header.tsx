@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ChevronDown, Menu, Search, ShoppingCart, User, X } from 'lucide-react'
+import { ChevronDown, Menu, ShoppingCart, User, X } from 'lucide-react'
 import { Logo } from './logo'
+import { SearchBox } from './search-box'
 import { categories, categoryChildren } from '@/lib/data'
 import { cn } from '@/lib/utils'
 
@@ -25,25 +26,7 @@ export function SiteHeader() {
 
         <Logo className="shrink-0" />
 
-        <form
-          className="relative ml-auto hidden max-w-xl flex-1 md:flex"
-          role="search"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <input
-            type="search"
-            placeholder="Rechercher un produit, une marque…"
-            className="h-11 w-full border border-border bg-white pl-11 pr-28 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
-            aria-label="Recherche"
-          />
-          <button
-            type="submit"
-            className="absolute right-1 top-1/2 h-9 -translate-y-1/2 bg-primary px-4 text-sm font-semibold text-white transition-colors hover:bg-ink"
-          >
-            Chercher
-          </button>
-        </form>
+        <SearchBox variant="desktop" />
 
         <div className="ml-auto flex items-center gap-2 md:ml-4">
           <Link
@@ -68,19 +51,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <form
-        className="relative px-4 pb-3 md:hidden"
-        role="search"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <Search className="pointer-events-none absolute left-7 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-        <input
-          type="search"
-          placeholder="Rechercher…"
-          className="h-10 w-full border border-border bg-white pl-11 pr-4 text-sm outline-none focus:border-primary"
-          aria-label="Recherche"
-        />
-      </form>
+      <SearchBox variant="mobile" />
 
       {/* Nav catégories — overflow visible pour ne pas clipper les dropdowns */}
       <div className="relative z-20 hidden border-t border-border bg-[#f7f8fa] lg:block">

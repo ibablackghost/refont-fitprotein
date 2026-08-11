@@ -194,11 +194,27 @@
   animation-delay: 0.3s;
 }
 
+@keyframes search-caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.search-caret {
+  animation: search-caret-blink 0.9s steps(1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .loader-ring-spin,
   .loader-logo,
   .loader-glow,
-  .loader-dot {
+  .loader-dot,
+  .search-caret {
     animation: none;
   }
 }

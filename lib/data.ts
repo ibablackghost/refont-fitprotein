@@ -433,6 +433,36 @@ export function getProductBySlug(slug: string) {
   return products.find((p) => p.slug === slug)
 }
 
+export function searchProducts(query: string, limit = 8) {
+  const q = query.trim().toLowerCase()
+  if (!q) return [] as Product[]
+
+  const scored = products
+    .map((p) => {
+      const name = p.name.toLowerCase()
+      const brand = p.brand.toLowerCase()
+      const category = p.category.toLowerCase()
+      const flavor = (p.flavor || '').toLowerCase()
+      const highlights = p.highlights.join(' ').toLowerCase()
+
+      let score = 0
+      if (name === q) score += 100
+      else if (name.startsWith(q)) score += 80
+      else if (name.includes(q)) score += 50
+      if (brand.startsWith(q)) score += 40
+      else if (brand.includes(q)) score += 25
+      if (category.includes(q)) score += 20
+      if (flavor.includes(q)) score += 15
+      if (highlights.includes(q)) score += 10
+
+      return { p, score }
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || a.p.price - b.p.price)
+
+  return scored.slice(0, limit).map((x) => x.p)
+}
+
 export function getProductsByCategory(slug: string) {
   if (slug === 'amka') {
     return amkaProducts
