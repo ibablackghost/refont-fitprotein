@@ -12,59 +12,56 @@ export function ProductCard({
   product: Product
   className?: string
 }) {
-  const isAmka = product.brand.toLowerCase().includes('amka')
-
   return (
     <article
       className={cn(
-        'group flex h-full flex-col overflow-hidden border border-border bg-white transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(15,23,32,0.08)]',
+        'group flex h-full flex-col overflow-hidden bg-white transition-shadow duration-300 hover:shadow-[0_14px_32px_rgba(10,10,10,0.10)]',
         className,
       )}
     >
-      <Link
-        href={`/produits/${product.slug}`}
-        className="relative block overflow-hidden bg-white"
-      >
-        <div className="absolute left-0 top-0 z-10 flex">
+      <Link href={`/produits/${product.slug}`} className="relative block overflow-hidden bg-white">
+        <div className="absolute left-0 top-3 z-10 flex flex-col items-start gap-1">
           {product.discount ? (
-            <span className="bg-sale px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+            <span className="-skew-x-12 bg-primary px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
               -{product.discount}%
             </span>
           ) : null}
           {product.isNew ? (
-            <span className="bg-ink px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+            <span className="-skew-x-12 bg-ink px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white">
               New
             </span>
           ) : null}
-          {product.isTrending && !product.isNew ? (
-            <span className="bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+          {product.isTrending && !product.isNew && !product.discount ? (
+            <span className="-skew-x-12 bg-ink px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-primary">
               Hot
             </span>
           ) : null}
         </div>
 
-        {isAmka ? (
-          <span className="absolute right-2 top-2 z-10 bg-sand px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em] text-sand-foreground">
-            AMKA
-          </span>
-        ) : null}
-
-        <div className="flex aspect-[4/5] items-center justify-center border-b border-border bg-white p-3 sm:p-4">
+        <div
+          className={cn(
+            'flex aspect-[4/5] items-center justify-center bg-white',
+            !product.fullBleed && 'p-3 sm:p-4',
+          )}
+        >
           <img
             src={product.image}
             alt={product.name}
-            className="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+            className={cn(
+              'h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.06]',
+              product.fullBleed ? 'object-cover' : 'object-contain',
+            )}
           />
         </div>
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-2 items-center justify-center bg-ink/0 py-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:bg-ink/80 group-hover:opacity-100">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-2 items-center justify-center bg-primary py-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <span className="font-heading text-[11px] font-extrabold uppercase italic tracking-[0.2em] text-white">
             Voir le produit
           </span>
         </div>
       </Link>
 
-      <div className="flex flex-1 flex-col bg-white px-3.5 pb-4 pt-3.5">
+      <div className="flex flex-1 flex-col border-t-[3px] border-transparent px-3.5 pb-4 pt-3.5 transition-colors group-hover:border-primary">
         <div className="flex items-center justify-between gap-2">
           <p className="truncate text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
             {product.brand}
@@ -87,7 +84,7 @@ export function ProductCard({
                 {formatFCFA(product.oldPrice)}
               </p>
             ) : null}
-            <p className="truncate text-sm font-bold tabular-nums tracking-tight text-ink sm:text-[15px]">
+            <p className="truncate font-heading text-base font-extrabold italic tabular-nums tracking-tight text-ink">
               {formatFCFA(product.price)}
             </p>
           </div>
@@ -95,7 +92,7 @@ export function ProductCard({
           <button
             type="button"
             aria-label={`Ajouter ${product.name} au panier`}
-            className="flex h-10 w-10 shrink-0 items-center justify-center bg-primary text-white transition-colors hover:bg-ink"
+            className="flex h-10 w-10 shrink-0 items-center justify-center bg-ink text-white transition-colors hover:bg-primary"
           >
             <Plus className="h-4 w-4" strokeWidth={2.5} />
           </button>

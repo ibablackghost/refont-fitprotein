@@ -57,10 +57,10 @@ export default async function ProductPage({
           <ProductGallery product={product} gallery={gallery} />
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
+            <p className="jp-eyebrow text-muted-foreground">
               {product.brand} · {product.category}
             </p>
-            <h1 className="mt-2 font-heading text-3xl font-extrabold text-primary text-balance sm:text-4xl">
+            <h1 className="jp-title mt-4 text-3xl leading-[1.05] text-ink text-balance sm:text-5xl">
               {product.name}
             </h1>
 
@@ -70,11 +70,11 @@ export default async function ProductPage({
                   {formatFCFA(product.oldPrice)}
                 </span>
               )}
-              <span className="font-heading text-3xl font-extrabold text-primary">
+              <span className="font-heading text-3xl font-black italic text-primary">
                 {formatFCFA(product.price)}
               </span>
               {product.discount ? (
-                <span className="bg-sale px-2 py-1 text-xs font-bold text-sale-foreground">
+                <span className="-skew-x-12 bg-ink px-2.5 py-1 text-xs font-extrabold text-white">
                   -{product.discount}%
                 </span>
               ) : null}
@@ -87,7 +87,7 @@ export default async function ProductPage({
             <ul className="mt-6 space-y-2">
               {product.highlights.map((h) => (
                 <li key={h} className="flex items-center gap-2 text-sm text-foreground">
-                  <span className="flex h-5 w-5 items-center justify-center bg-lime text-[10px] font-bold text-lime-foreground">
+                  <span className="flex h-5 w-5 -skew-x-6 items-center justify-center bg-primary text-[10px] font-bold text-white">
                     ✓
                   </span>
                   {h}
@@ -98,7 +98,9 @@ export default async function ProductPage({
             <div className="mt-6 flex flex-wrap gap-4 text-sm">
               {product.weight && (
                 <div className="border border-border bg-card px-3 py-2">
-                  <span className="text-muted-foreground">Contenance · </span>
+                  <span className="text-muted-foreground">
+                    {product.univers === 'complements' ? 'Contenance' : 'Poids'} ·{' '}
+                  </span>
                   <span className="font-semibold">{product.weight}</span>
                 </div>
               )}
@@ -116,7 +118,9 @@ export default async function ProductPage({
 
         {related.length > 0 && (
           <section className="mt-20">
-            <h2 className="font-heading text-2xl font-extrabold text-primary">Vous aimerez aussi</h2>
+            <h2 className="jp-title text-3xl text-ink">
+              Tu vas <span className="text-primary">aimer</span>
+            </h2>
             <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {related.map((p) => (
                 <ProductCard key={p.id} product={p} />

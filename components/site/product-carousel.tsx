@@ -34,7 +34,7 @@ export function ProductCarousel({ products }: { products: Product[] }) {
         type="button"
         onClick={() => scrollBy(-1)}
         aria-label="Précédent"
-        className="absolute -left-3 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center border border-border bg-card text-primary transition-colors hover:bg-primary hover:text-primary-foreground lg:flex"
+        className="absolute -left-3 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center bg-ink text-white shadow-lg transition-colors hover:bg-primary lg:flex"
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
@@ -42,7 +42,7 @@ export function ProductCarousel({ products }: { products: Product[] }) {
         type="button"
         onClick={() => scrollBy(1)}
         aria-label="Suivant"
-        className="absolute -right-3 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center border border-border bg-card text-primary transition-colors hover:bg-primary hover:text-primary-foreground lg:flex"
+        className="absolute -right-3 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center bg-ink text-white shadow-lg transition-colors hover:bg-primary lg:flex"
       >
         <ChevronRight className="h-5 w-5" />
       </button>
