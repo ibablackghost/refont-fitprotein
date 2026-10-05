@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-exo), var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-lime: var(--lime);
@@ -59,49 +59,49 @@
 
 :root {
   color-scheme: light;
-  /* Fit & Protein × AMKA — bleu AMKA (#266acc) + blanc + sable */
-  --background: #f7fafc;
-  --foreground: #14181f;
+  /* Charte Jollof Protéine : orange #EE6800, noir, blanc, gris clair #F0F0F0 */
+  --background: #f0f0f0;
+  --foreground: #0a0a0a;
   --card: #ffffff;
-  --card-foreground: #14181f;
+  --card-foreground: #0a0a0a;
   --popover: #ffffff;
-  --popover-foreground: #14181f;
-  --primary: #266acc;
+  --popover-foreground: #0a0a0a;
+  --primary: #ee6800;
   --primary-foreground: #ffffff;
-  --secondary: #e8f1fa;
-  --secondary-foreground: #132c50;
-  --muted: #eef3f8;
-  --muted-foreground: #5b6573;
-  --accent: #266acc;
+  --secondary: #e6e6e6;
+  --secondary-foreground: #0a0a0a;
+  --muted: #e6e6e6;
+  --muted-foreground: #5c5c5c;
+  --accent: #ee6800;
   --accent-foreground: #ffffff;
-  --destructive: #c43c3c;
-  --border: #dce5ee;
-  --input: #dce5ee;
-  --ring: #266acc;
-  --brand: #266acc;
+  --destructive: #d92d20;
+  --border: #dcdcdc;
+  --input: #dcdcdc;
+  --ring: #ee6800;
+  --brand: #ee6800;
   --brand-foreground: #ffffff;
-  --lime: #266acc;
+  --lime: #ee6800;
   --lime-foreground: #ffffff;
-  --ink: #132c50;
-  --mist: #e8f1fa;
-  --sand: #c9b896;
-  --sand-foreground: #2a2418;
-  --sale: #c43c3c;
+  --ink: #0a0a0a;
+  --mist: #e6e6e6;
+  --sand: #ee6800;
+  --sand-foreground: #ffffff;
+  --sale: #d92d20;
   --sale-foreground: #ffffff;
-  --chart-1: #266acc;
-  --chart-2: #132c50;
-  --chart-3: #c9b896;
-  --chart-4: #c43c3c;
-  --chart-5: #7eb8f0;
+  --chart-1: #ee6800;
+  --chart-2: #0a0a0a;
+  --chart-3: #f59a4a;
+  --chart-4: #d92d20;
+  --chart-5: #5c5c5c;
   --radius: 0.25rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #14181f;
-  --sidebar-primary: #266acc;
+  --sidebar-foreground: #0a0a0a;
+  --sidebar-primary: #ee6800;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e8f1fa;
-  --sidebar-accent-foreground: #132c50;
-  --sidebar-border: #dce5ee;
-  --sidebar-ring: #266acc;
+  --sidebar-accent: #e6e6e6;
+  --sidebar-accent-foreground: #0a0a0a;
+  --sidebar-border: #dcdcdc;
+  --sidebar-ring: #ee6800;
 }
 
 @layer base {
@@ -110,10 +110,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(ellipse 80% 45% at 0% 0%, #e8f1fa 0%, transparent 55%),
-      radial-gradient(ellipse 50% 35% at 100% 0%, rgba(201, 184, 150, 0.18) 0%, transparent 50%);
-    background-attachment: fixed;
   }
   html {
     scroll-behavior: smooth;
@@ -127,6 +123,42 @@
   .text-pretty {
     text-wrap: pretty;
   }
+}
+
+/* Titres façon logo : italique, gras, majuscules */
+@utility jp-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+@utility jp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  &::before {
+    content: '';
+    width: 1.75rem;
+    height: 3px;
+    background: var(--primary);
+    transform: skewX(-20deg);
+  }
+}
+
+/* Trait orange vertical qui s'estompe (planches 6–8 de la charte) */
+@utility jp-line {
+  width: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, var(--primary) 0%, var(--primary) 55%, transparent 100%);
 }
 
 @keyframes loader-spin {

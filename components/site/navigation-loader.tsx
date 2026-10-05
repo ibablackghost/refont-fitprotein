@@ -52,7 +52,7 @@ export function NavigationLoader() {
 export function LoadingOverlay({ label = 'Chargement…' }: { label?: string }) {
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#0f1720]/50 backdrop-blur-[2px]"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-ink/55 backdrop-blur-[2px]"
       role="status"
       aria-live="polite"
       aria-busy="true"
@@ -60,20 +60,20 @@ export function LoadingOverlay({ label = 'Chargement…' }: { label?: string }) 
       <div className="flex flex-col items-center gap-4">
         <div className="relative flex h-20 w-20 items-center justify-center">
           <span className="loader-ring absolute inset-0 rounded-full border-2 border-white/20" />
-          <span className="loader-ring-spin absolute inset-1 rounded-full border-2 border-transparent border-t-white border-r-white/40" />
+          <span className="loader-ring-spin absolute inset-1 rounded-full border-2 border-transparent border-t-primary border-r-primary/40" />
           <span className="loader-glow absolute inset-3 rounded-full bg-primary/30" />
           <img
-            src="/brand/fit-pro-logo-on-dark.webp"
+            src="/jollof/mark-light.webp"
             alt=""
-            className="loader-logo relative z-[1] h-12 w-auto object-contain"
+            className="loader-logo relative z-[1] h-9 w-auto object-contain"
             aria-hidden="true"
           />
         </div>
-        <p className="font-heading text-sm font-bold tracking-wide text-white">{label}</p>
+        <p className="font-heading text-sm font-extrabold uppercase italic tracking-wide text-white">{label}</p>
         <div className="flex items-center justify-center gap-1.5" aria-hidden="true">
           <span className="loader-dot h-1.5 w-1.5 rounded-full bg-white" />
           <span className="loader-dot loader-dot-2 h-1.5 w-1.5 rounded-full bg-white" />
-          <span className="loader-dot loader-dot-3 h-1.5 w-1.5 rounded-full bg-sand" />
+          <span className="loader-dot loader-dot-3 h-1.5 w-1.5 rounded-full bg-primary" />
         </div>
       </div>
       <span className="sr-only">{label}</span>

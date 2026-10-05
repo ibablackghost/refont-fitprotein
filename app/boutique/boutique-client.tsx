@@ -32,11 +32,11 @@ const SORT_OPTIONS: { value: SortKey; label: string }[] = [
 ]
 
 const PRICE_MIN = 0
-const PRICE_MAX = 40000
+const PRICE_MAX = 80000
 
-const categoryFilters = [
+const categoryFilters: { label: string; slug: string; sub?: boolean }[] = [
   { label: 'Tous les produits', slug: 'all' },
-  ...Array.from(new Map(allCategories.map((c) => [c.slug, c])).values()),
+  ...allCategories,
 ]
 
 function uniqueBrands() {
@@ -167,7 +167,8 @@ function FiltersPanel({
               type="button"
               onClick={() => onCategory(f.slug)}
               className={cn(
-                'flex w-full items-center justify-between px-2 py-2 text-left text-sm transition-colors',
+                'flex w-full items-center justify-between py-2 pr-2 text-left text-sm transition-colors',
+                f.sub ? 'pl-5' : 'pl-2 font-semibold',
                 category === f.slug
                   ? 'bg-primary text-white'
                   : 'text-ink/80 hover:bg-mist hover:text-primary',
@@ -590,19 +591,19 @@ export default function BoutiqueClient() {
     <SiteShell>
       <section className="relative z-0 overflow-hidden bg-ink">
         <img
-          src="/hero/lifestyle.jpg"
+          src="/jollof/photos/hero-deadlift.webp"
           alt=""
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-35"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-40"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:py-16">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-sand">Catalogue</p>
-          <h1 className="mt-2 font-heading text-3xl font-extrabold text-white text-balance sm:text-5xl">
-            Boutique Fit &amp; Protein
+          <p className="jp-eyebrow text-primary">Catalogue</p>
+          <h1 className="jp-title mt-3 text-4xl text-white text-balance sm:text-6xl">
+            La <span className="text-primary">boutique</span>
           </h1>
           <p className="mt-3 max-w-xl text-sm text-white/70 text-pretty sm:text-base">
-            Filtre par catégorie, marque ou budget — gamme AMKA et grandes marques, livrées au
-            Sénégal.
+            Compléments alimentaires, équipement fitness et chaussures de sport — filtre par
+            univers, marque ou budget. Livraison partout au Sénégal.
           </p>
         </div>
       </section>

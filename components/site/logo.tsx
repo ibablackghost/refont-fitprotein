@@ -1,31 +1,31 @@
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-/** Logo Fit & Protein complet (icône + écritures d’origine) */
-export function FitProMark({
+type Variant = 'horizontal' | 'stacked' | 'mark'
+
+const sources: Record<Variant, { dark: string; light: string }> = {
+  horizontal: { dark: '/jollof/logo-horizontal.webp', light: '/jollof/logo-horizontal-light.webp' },
+  stacked: { dark: '/jollof/logo-stacked.webp', light: '/jollof/logo-stacked-light.webp' },
+  mark: { dark: '/jollof/mark.webp', light: '/jollof/mark-light.webp' },
+}
+
+/** Logo Jollof Protéine — `onDark` pour la version au « J » blanc */
+export function JollofMark({
   className,
+  variant = 'horizontal',
   onDark = false,
 }: {
   className?: string
-  /** Version texte blanc pour fonds sombres */
+  variant?: Variant
   onDark?: boolean
 }) {
+  const src = sources[variant][onDark ? 'light' : 'dark']
   return (
     <img
-      src={onDark ? '/brand/fit-pro-logo-on-dark.webp' : '/brand/fit-pro-logo.webp'}
-      alt="Fit & Protein"
+      src={src}
+      alt={variant === 'mark' ? '' : 'Jollof Protéine'}
+      aria-hidden={variant === 'mark' ? true : undefined}
       className={cn('h-12 w-auto object-contain', className)}
-    />
-  )
-}
-
-export function AmkaMark({ className }: { className?: string }) {
-  return (
-    <img
-      src="/amka/logo.png"
-      alt=""
-      className={cn('h-8 w-auto object-contain', className)}
-      aria-hidden="true"
     />
   )
 }
@@ -35,9 +35,9 @@ export function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn('inline-flex items-center', className)}
-      aria-label="Accueil Fit & Protein"
+      aria-label="Accueil Jollof Protéine"
     >
-      <FitProMark className="h-12 sm:h-14" />
+      <JollofMark className="h-9 sm:h-11" />
     </Link>
   )
 }

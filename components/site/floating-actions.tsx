@@ -23,7 +23,7 @@ export function ProteinCalculatorTab() {
     <Link
       href="/calculateur"
       aria-label="Calculateur de protéines"
-      className="fixed left-0 top-1/2 z-30 hidden -translate-y-1/2 items-center gap-2 bg-sale px-2 py-4 text-sale-foreground shadow-md transition-colors hover:bg-sale/90 md:flex [writing-mode:vertical-rl]"
+      className="fixed left-0 top-1/2 z-30 hidden -translate-y-1/2 items-center gap-2 bg-primary px-2 py-4 text-white shadow-md transition-colors hover:bg-ink md:flex [writing-mode:vertical-rl]"
     >
       <Calculator className="h-4 w-4 rotate-90" />
       <span className="text-xs font-bold uppercase tracking-widest">Protein Calculator</span>
@@ -48,7 +48,7 @@ export function BackToTop() {
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Retour en haut"
-      className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-105"
+      className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center bg-ink text-white shadow-lg hover:bg-primary transition-transform hover:scale-105"
     >
       <ArrowUp className="h-5 w-5" />
     </button>

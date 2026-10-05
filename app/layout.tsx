@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Montserrat } from 'next/font/google'
+import { Exo_2, Montserrat } from 'next/font/google'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -10,17 +10,25 @@ const montserrat = Montserrat({
   display: 'swap',
 })
 
+const exo = Exo_2({
+  subsets: ['latin'],
+  weight: ['700', '800', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-exo',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: {
-    default: 'Fit & Protein × AMKA — Nutrition sportive au Sénégal',
-    template: '%s · Fit & Protein × AMKA',
+    default: 'Jollof Protéine — Compléments, fitness & chaussures au Sénégal',
+    template: '%s · Jollof Protéine',
   },
   description:
-    'Partenaire officiel AMKA Nutrition au Sénégal. Whey, créatine et nutrition sportive premium à Dakar.',
+    'Jollof Protéine : compléments alimentaires, équipement fitness et chaussures de sport. Livraison à Dakar et partout au Sénégal.',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#266acc',
+  themeColor: '#0a0a0a',
 }
 
 export default function RootLayout({
@@ -29,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className={`${montserrat.variable} light`}>
+    <html lang="fr" className={`${montserrat.variable} ${exo.variable} light`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

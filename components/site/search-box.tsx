@@ -9,12 +9,13 @@ import { cn } from '@/lib/utils'
 
 const HINTS = [
   'Whey protein',
-  'AMKA Nutrition',
+  'Chaussures running',
+  'Kettlebell',
   'Créatine',
   'Gainer',
-  'BCAA',
+  'Haltères',
   'Shaker',
-  'Perte de poids',
+  'Nike Air Max',
 ]
 
 function useTypedHint(paused: boolean) {
@@ -189,7 +190,7 @@ export function SearchBox({
                     )}
                   >
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden border border-border bg-white">
-                      <img src={p.image} alt="" className="h-full w-full object-contain p-1" />
+                      <img src={p.image} alt="" className={p.fullBleed ? 'h-full w-full object-cover' : 'h-full w-full object-contain p-1'} />
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[11px] font-bold uppercase tracking-wide text-primary">
