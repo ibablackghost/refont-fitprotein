@@ -10,9 +10,9 @@ import { univers } from '@/lib/data'
 gsap.registerPlugin(useGSAP)
 
 const slides = [
+  { src: '/jollof/photos/hero-accra.webp', alt: 'Athlète en séance de musculation en salle' },
+  { src: '/jollof/photos/hero-lagos.webp', alt: 'Sportive en tenue de training dans une salle de sport' },
   { src: '/jollof/photos/hero-athlete.webp', alt: 'Athlète à l’entraînement avec haltère' },
-  { src: '/jollof/photos/hero-deadlift.webp', alt: 'Soulevé de terre en chaussures de training' },
-  { src: '/jollof/photos/hero-gym.webp', alt: 'Séance de musculation en salle' },
 ]
 
 export function Hero() {
@@ -79,8 +79,8 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-ink via-transparent to-ink/40" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
 
       <img
         src="/jollof/mark-light.webp"

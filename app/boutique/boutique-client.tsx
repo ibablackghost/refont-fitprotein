@@ -591,7 +591,7 @@ export default function BoutiqueClient() {
     <SiteShell>
       <section className="relative z-0 overflow-hidden bg-ink">
         <img
-          src="/jollof/photos/hero-deadlift.webp"
+          src="/jollof/photos/boutique-sprint.webp"
           alt=""
           className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-40"
         />

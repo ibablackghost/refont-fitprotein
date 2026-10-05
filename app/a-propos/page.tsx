@@ -33,7 +33,7 @@ export default function AboutPage() {
     <SiteShell>
       <section className="relative min-h-[55vh] overflow-hidden bg-ink">
         <img
-          src="/jollof/photos/hero-gym.webp"
+          src="/jollof/photos/hero-accra.webp"
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-[center_30%] opacity-40"
         />
