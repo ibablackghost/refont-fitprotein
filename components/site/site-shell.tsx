@@ -12,10 +12,8 @@ import { NavigationLoader } from '@/components/site/navigation-loader'
 export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
-      <div className="sticky top-0 z-[100] overflow-visible bg-white shadow-[0_1px_0_rgba(15,23,32,0.06)]">
-        <TopBar />
-        <SiteHeader />
-      </div>
+      <TopBar />
+      <SiteHeader />
       <main className="relative z-0">{children}</main>
       <SiteFooter />
       <WhatsAppButton />

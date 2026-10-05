@@ -101,7 +101,7 @@ export function SearchBox({
       role="search"
       className={cn(
         'relative',
-        variant === 'desktop' ? 'ml-auto hidden max-w-xl flex-1 md:block' : 'px-4 pb-3 md:hidden',
+        variant === 'desktop' ? 'ml-auto hidden max-w-xl flex-1 md:block' : 'w-full',
       )}
       onSubmit={(e) => {
         e.preventDefault()
@@ -113,12 +113,7 @@ export function SearchBox({
         goToResults()
       }}
     >
-      <Search
-        className={cn(
-          'pointer-events-none absolute top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground',
-          variant === 'desktop' ? 'left-4' : 'left-7',
-        )}
-      />
+      <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
       <input
         type="search"
         value={query}
@@ -146,7 +141,7 @@ export function SearchBox({
         placeholder=""
         className={cn(
           'w-full border border-border bg-white text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary',
-          variant === 'desktop' ? 'h-11 pl-11 pr-28' : 'h-10 pl-11 pr-4',
+          variant === 'desktop' ? 'h-11 pl-11 pr-28' : 'h-11 bg-background pl-11 pr-14 focus:bg-white',
         )}
         aria-label="Recherche"
         aria-autocomplete="list"
@@ -155,10 +150,7 @@ export function SearchBox({
       />
       {showHint ? (
         <span
-          className={cn(
-            'pointer-events-none absolute top-1/2 flex -translate-y-1/2 items-center text-sm text-muted-foreground',
-            variant === 'desktop' ? 'left-11' : 'left-14',
-          )}
+          className="pointer-events-none absolute left-11 top-1/2 flex -translate-y-1/2 items-center text-sm text-muted-foreground"
           aria-hidden="true"
         >
           <span className="text-ink/55">{typedHint}</span>
@@ -172,7 +164,15 @@ export function SearchBox({
         >
           Chercher
         </button>
-      ) : null}
+      ) : (
+        <button
+          type="submit"
+          aria-label="Lancer la recherche"
+          className="absolute right-1 top-1/2 flex h-9 w-11 -translate-y-1/2 items-center justify-center bg-primary text-white transition-colors active:bg-ink"
+        >
+          <Search className="h-4 w-4" strokeWidth={2.5} />
+        </button>
+      )}
 
       {showPanel ? (
         <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-[120] overflow-hidden border border-border bg-white shadow-[0_16px_40px_rgba(15,23,32,0.12)]">
